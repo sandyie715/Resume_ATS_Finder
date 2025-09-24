@@ -30,3 +30,15 @@ def extract_skills(text:  str| None = None) -> list[str]:
         return []
     
     
+def combine_skills(resume_json: dict, keybert_skills: list = None) -> dict:
+    """
+    Combine skills from parsed resume JSON and optional KeyBERT extracted skills.
+    """
+    combined = resume_json.copy()
+    extracted = set(resume_json.get("skills", []))
+
+    if keybert_skills:
+        extracted.update(keybert_skills)
+
+    combined["skills"] = list(extracted)
+    return combined

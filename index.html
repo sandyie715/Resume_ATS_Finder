@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Parser</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        .container { max-width: 700px; margin: auto; text-align: center; }
+        input[type="file"] { margin-bottom: 10px; }
+        textarea { width: 100%; height: 160px; margin-top: 10px; }
+        button { padding: 8px 16px; cursor: pointer; margin-top: 10px; }
+        .section { border: 1px solid #eee; padding: 16px; margin-top: 16px; border-radius: 6px; }
+        #message, #jdMessage { margin-top: 12px; color: green; }
+        #spinner, #jdSpinner { display: none; margin-top: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Parser</h1>
+
+        <div class="section">
+            <h3>1) Upload Resume</h3>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileInput" accept=".pdf,.docx,.txt" required><br>
+                <button type="submit" id="uploadBtn">Upload & Process Resume</button>
+            </form>
+            <div id="spinner">Processing resume... ⏳</div>
+            <p id="message"></p>
+            <a id="downloadLink" href="#" download="resume_output.json" style="display:none">Download Resume JSON</a>
+        </div>
+
+        <div class="section">
+            <h3>2) Paste Job Description (JD)</h3>
+            <p>Paste JD here (the model will extract skills and experience).</p>
+            <textarea id="jdText" placeholder="Paste JD here..."></textarea><br>
+            <button id="processJdBtn">Extract JD & Combine</button>
+            <div id="jdSpinner">Processing JD... ⏳</div>
+            <p id="jdMessage"></p>
+            <a id="combinedLink" href="#" download="combined_output.json" style="display:none">Download Combined JSON</a>
+        </div>
+    </div>
+
+    <script>
+        // Resume upload
+        const uploadForm = document.getElementById("uploadForm");
+        const message = document.getElementById("message");
+        const downloadLink = document.getElementById("downloadLink");
+        const spinner = document.getElementById("spinner");
+        const uploadBtn = document.getElementById("uploadBtn");
+
+        uploadForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById("fileInput");
+            if (!fileInput.files.length) {
+                message.textContent = "Please select a file to upload.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            spinner.style.display = "block";
+            message.textContent = "";
+            downloadLink.style.display = "none";
+            uploadBtn.disabled = true;
+
+            try {
+                const response = await fetch("/upload_resume/", {
+                    method: "POST",
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.download_url) {
+                    message.textContent = result.message;
+                    downloadLink.href = result.download_url;
+                    downloadLink.style.display = "inline-block";
+                } else {
+                    message.textContent = "Error: " + (result.error || "Unknown error");
+                }
+            } catch (err) {
+                message.textContent = "Error: " + err;
+            } finally {
+                spinner.style.display = "none";
+                uploadBtn.disabled = false;
+            }
+        });
+
+        // JD processing and combine
+        const processJdBtn = document.getElementById("processJdBtn");
+        const jdText = document.getElementById("jdText");
+        const jdSpinner = document.getElementById("jdSpinner");
+        const jdMessage = document.getElementById("jdMessage");
+        const combinedLink = document.getElementById("combinedLink");
+
+        processJdBtn.addEventListener("click", async () => {
+            const text = jdText.value.trim();
+            if (!text) {
+                jdMessage.textContent = "Please paste the Job Description first.";
+                return;
+            }
+
+            jdSpinner.style.display = "block";
+            jdMessage.textContent = "";
+            combinedLink.style.display = "none";
+            processJdBtn.disabled = true;
+
+            // Use FormData since endpoint expects form input
+            const formData = new FormData();
+            formData.append("jd_text", text);
+
+            try {
+                const resp = await fetch("/process_jd/", {
+                    method: "POST",
+                    body: formData
+                });
+                const data = await resp.json();
+                if (data.download_url) {
+                    jdMessage.textContent = data.message;
+                    combinedLink.href = data.download_url;
+                    combinedLink.style.display = "inline-block";
+                } else {
+                    jdMessage.textContent = "Error: " + (data.error || "Unknown error");
+                }
+            } catch (err) {
+                jdMessage.textContent = "Error: " + err;
+            } finally {
+                jdSpinner.style.display = "none";
+                processJdBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

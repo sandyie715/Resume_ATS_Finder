@@ -1,0 +1,67 @@
+{
+    "resume": {
+        "Name": [
+            "Karunasagara T M"
+        ],
+        "Profile Title": "",
+        "Email": "",
+        "Contact": {
+            "Primary number": [
+                "+91 8073242058"
+            ],
+            "Secondary number": []
+        },
+        "Gender": "",
+        "Date of Birth": "",
+        "Address": {
+            "Address Line1": "",
+            "Address Line2": "",
+            "Country": "",
+            "State": "",
+            "City": "",
+            "Postal Code": ""
+        },
+        "Total Years Experience": "",
+        "Nationality": "",
+        "GitHub Link": "",
+        "Website/Portfolio": "",
+        "LinkedIn Link": "",
+        "Education": {
+            "First college": [],
+            "Studied Year": "",
+            "Marks/CGPA/Score": ""
+        },
+        "Skills": [],
+        "Experience": {
+            "First working company name": [],
+            "Role": "",
+            "Start Date": "",
+            "End Date": "",
+            "Total years experience": ""
+        },
+        "Project": {
+            "Project1 name": [],
+            "Start Date": "",
+            "End Date": "",
+            "Skills used": ""
+        }
+    },
+    "jd": {
+        "skills": [
+            "Excel",
+            "SQL",
+            "Tableau",
+            "Data analysis",
+            "Problem-solving",
+            "Communication skills",
+            "Analytical skills",
+            "Technical skills",
+            "Research skills",
+            "Reporting",
+            "Presentation skills"
+        ],
+        "experience": [
+            "Assist in analyzing and solving data-related challenges."
+        ]
+    }
+}
