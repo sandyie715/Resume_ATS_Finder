@@ -1,0 +1,490 @@
+2025-09-25 15:55:53,636 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 15:55:53,637 - INFO - Normalization completed successfully.
+2025-09-25 15:55:53,769 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 15:55:53,769 - INFO - Normalization completed successfully.
+2025-09-25 16:01:58,930 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:01:58,930 - INFO - Normalization completed successfully.
+2025-09-25 16:01:58,932 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:01:58,932 - INFO - Normalization completed successfully.
+2025-09-25 16:05:08,332 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:05:08,333 - INFO - Normalization completed successfully.
+2025-09-25 16:05:08,335 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:05:08,335 - INFO - Normalization completed successfully.
+2025-09-25 16:07:37,304 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:07:37,304 - INFO - Unknown skill detected: 'elixir'
+2025-09-25 16:07:37,304 - INFO - Unknown skill detected: 'rustlang'
+2025-09-25 16:07:37,305 - INFO - Unknown skill detected: 'elixir'
+2025-09-25 16:07:37,305 - INFO - Unknown skill detected: 'kotlin'
+2025-09-25 16:07:37,305 - INFO - Unknown skill detected: 'scala'
+2025-09-25 16:07:37,305 - INFO - Unknown skill detected: 'elixir'
+2025-09-25 16:07:37,305 - INFO - Unknown skill detected: 'scala'
+2025-09-25 16:07:37,305 - INFO - Normalization completed successfully.
+2025-09-25 16:08:35,876 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:08:35,876 - INFO - Unknown skill detected: 'elixir'
+2025-09-25 16:08:35,876 - INFO - Unknown skill detected: 'rustlang'
+2025-09-25 16:08:35,876 - INFO - Unknown skill detected: 'elixir'
+2025-09-25 16:08:35,877 - INFO - Unknown skill detected: 'kotlin'
+2025-09-25 16:08:35,877 - INFO - Unknown skill detected: 'scala'
+2025-09-25 16:08:35,877 - INFO - Unknown skill detected: 'elixir'
+2025-09-25 16:08:35,877 - INFO - Unknown skill detected: 'scala'
+2025-09-25 16:08:35,877 - INFO - Normalization completed successfully.
+2025-09-25 16:12:51,692 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:12:51,693 - INFO - Normalization completed successfully.
+2025-09-25 16:12:56,641 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:12:56,641 - INFO - Normalization completed successfully.
+2025-09-25 16:12:56,950 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:12:56,950 - INFO - Unknown skill detected: 'express'
+2025-09-25 16:12:56,950 - INFO - Normalization completed successfully.
+2025-09-25 16:20:36,175 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:20:36,176 - INFO - Normalization completed successfully.
+2025-09-25 16:20:41,149 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:20:41,149 - INFO - Normalization completed successfully.
+2025-09-25 16:20:41,515 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:20:41,515 - INFO - Normalization completed successfully.
+2025-09-25 16:20:41,798 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:20:41,798 - INFO - Normalization completed successfully.
+2025-09-25 16:20:42,067 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:20:42,067 - INFO - Unknown skill detected: 'express'
+2025-09-25 16:20:42,067 - INFO - Normalization completed successfully.
+2025-09-25 16:56:59,535 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:56:59,535 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 16:56:59,535 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 16:56:59,536 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 16:56:59,536 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 16:56:59,536 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 16:56:59,536 - INFO - Unknown skill detected: 'github'
+2025-09-25 16:56:59,536 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 16:56:59,537 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 16:56:59,537 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 16:56:59,537 - INFO - Unknown skill detected: 'mlops optional'
+2025-09-25 16:56:59,537 - INFO - Unknown skill detected: 'sql'
+2025-09-25 16:56:59,537 - INFO - Unknown skill detected: 'plsql'
+2025-09-25 16:56:59,537 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 16:56:59,538 - INFO - Unknown skill detected: 'autosys'
+2025-09-25 16:56:59,538 - INFO - Unknown skill detected: 'unix'
+2025-09-25 16:56:59,538 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 16:56:59,538 - INFO - Unknown skill detected: 'sql queries'
+2025-09-25 16:56:59,538 - INFO - Unknown skill detected: 'troubleshooting'
+2025-09-25 16:56:59,539 - WARNING - [Resume Exp] Invalid experience entry for First working company name: [0]
+2025-09-25 16:56:59,539 - WARNING - [Resume Exp] Invalid experience entry for Role: [2, 3]
+2025-09-25 16:56:59,539 - WARNING - [Resume Exp] Invalid experience entry for Start Date: [2022]
+2025-09-25 16:56:59,539 - WARNING - [Resume Exp] Invalid experience entry for End Date: [2024]
+2025-09-25 16:56:59,539 - WARNING - [Resume Exp] Invalid experience entry for Total years experience: [3]
+2025-09-25 16:56:59,539 - INFO - Normalization completed successfully.
+2025-09-25 16:57:06,427 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 16:57:06,427 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 16:57:06,427 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 16:57:06,427 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 16:57:06,428 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 16:57:06,428 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 16:57:06,428 - INFO - Unknown skill detected: 'github'
+2025-09-25 16:57:06,428 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 16:57:06,428 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 16:57:06,428 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 16:57:06,430 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 16:57:06,430 - WARNING - [JD Parsing] Could not parse experience string: 'Recent graduate or 1-2 years of experience from IITs or NITs'
+2025-09-25 16:57:06,430 - INFO - Normalization completed successfully.
+2025-09-25 17:42:39,357 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 17:42:39,358 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 17:42:39,358 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 17:42:39,358 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 17:42:39,359 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 17:42:39,359 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 17:42:39,359 - INFO - Unknown skill detected: 'github'
+2025-09-25 17:42:39,360 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 17:42:39,360 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 17:42:39,360 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 17:42:39,360 - INFO - Unknown skill detected: 'mlops optional'
+2025-09-25 17:42:39,361 - INFO - Unknown skill detected: 'sql'
+2025-09-25 17:42:39,361 - INFO - Unknown skill detected: 'plsql'
+2025-09-25 17:42:39,361 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 17:42:39,361 - INFO - Unknown skill detected: 'autosys'
+2025-09-25 17:42:39,362 - INFO - Unknown skill detected: 'unix'
+2025-09-25 17:42:39,362 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 17:42:39,362 - INFO - Unknown skill detected: 'sql queries'
+2025-09-25 17:42:39,363 - INFO - Unknown skill detected: 'troubleshooting'
+2025-09-25 17:42:39,363 - INFO - Normalization completed successfully.
+2025-09-25 17:42:47,953 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 17:42:47,954 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 17:42:47,954 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 17:42:47,954 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 17:42:47,954 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 17:42:47,955 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 17:42:47,955 - INFO - Unknown skill detected: 'github'
+2025-09-25 17:42:47,955 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 17:42:47,955 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 17:42:47,955 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 17:42:47,956 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 17:42:47,956 - INFO - Unknown skill detected: 'of experience from iits or nits'
+2025-09-25 17:42:47,956 - INFO - Normalization completed successfully.
+2025-09-25 17:51:44,143 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 17:51:44,143 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 17:51:44,144 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 17:51:44,144 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 17:51:44,144 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 17:51:44,144 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 17:51:44,145 - INFO - Unknown skill detected: 'github'
+2025-09-25 17:51:44,145 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 17:51:44,145 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 17:51:44,145 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 17:51:44,146 - INFO - Unknown skill detected: 'mlops optional'
+2025-09-25 17:51:44,146 - INFO - Unknown skill detected: 'sql'
+2025-09-25 17:51:44,146 - INFO - Unknown skill detected: 'plsql'
+2025-09-25 17:51:44,146 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 17:51:44,146 - INFO - Unknown skill detected: 'autosys'
+2025-09-25 17:51:44,148 - INFO - Unknown skill detected: 'unix'
+2025-09-25 17:51:44,148 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 17:51:44,148 - INFO - Unknown skill detected: 'sql queries'
+2025-09-25 17:51:44,149 - INFO - Unknown skill detected: 'troubleshooting'
+2025-09-25 17:51:44,149 - INFO - Normalization completed successfully.
+2025-09-25 17:51:51,435 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 17:51:51,435 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 17:51:51,435 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 17:51:51,435 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 17:51:51,436 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 17:51:51,436 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 17:51:51,436 - INFO - Unknown skill detected: 'github'
+2025-09-25 17:51:51,436 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 17:51:51,437 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 17:51:51,437 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 17:51:51,437 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 17:51:51,438 - INFO - Unknown skill detected: 'of experience from iits or nits'
+2025-09-25 17:51:51,438 - INFO - Normalization completed successfully.
+2025-09-25 18:00:14,800 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:00:14,800 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 18:00:14,801 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 18:00:14,801 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 18:00:14,801 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 18:00:14,801 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 18:00:14,802 - INFO - Unknown skill detected: 'github'
+2025-09-25 18:00:14,802 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:00:14,802 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 18:00:14,802 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 18:00:14,802 - INFO - Unknown skill detected: 'mlops optional'
+2025-09-25 18:00:14,803 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:00:14,803 - INFO - Unknown skill detected: 'plsql'
+2025-09-25 18:00:14,803 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:00:14,804 - INFO - Unknown skill detected: 'autosys'
+2025-09-25 18:00:14,804 - INFO - Unknown skill detected: 'unix'
+2025-09-25 18:00:14,804 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:00:14,804 - INFO - Unknown skill detected: 'sql queries'
+2025-09-25 18:00:14,805 - INFO - Unknown skill detected: 'troubleshooting'
+2025-09-25 18:00:14,805 - INFO - Normalization completed successfully.
+2025-09-25 18:00:22,491 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:00:22,492 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 18:00:22,492 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 18:00:22,492 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 18:00:22,493 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 18:00:22,493 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 18:00:22,493 - INFO - Unknown skill detected: 'github'
+2025-09-25 18:00:22,493 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:00:22,493 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 18:00:22,495 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 18:00:22,495 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:00:22,496 - INFO - Unknown skill detected: 'of experience from iits or nits'
+2025-09-25 18:00:22,496 - INFO - Normalization completed successfully.
+2025-09-25 18:04:32,938 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:04:32,939 - INFO - Unknown skill detected: 'flask'
+2025-09-25 18:04:32,939 - INFO - Normalization completed successfully.
+2025-09-25 18:04:39,375 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:04:39,376 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:04:39,376 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:04:39,376 - INFO - Unknown skill detected: 'microservices'
+2025-09-25 18:04:39,377 - INFO - Unknown skill detected: 'experience in java'
+2025-09-25 18:04:39,377 - INFO - Unknown skill detected: 'experience in spring'
+2025-09-25 18:04:39,377 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:04:39,378 - INFO - Unknown skill detected: 'spring boot'
+2025-09-25 18:04:39,378 - INFO - Unknown skill detected: 'kafka'
+2025-09-25 18:04:39,378 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:04:39,378 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:04:39,379 - INFO - Normalization completed successfully.
+2025-09-25 18:07:17,457 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:07:17,458 - INFO - Unknown skill detected: 'flask'
+2025-09-25 18:07:17,458 - INFO - Normalization completed successfully.
+2025-09-25 18:07:24,040 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:07:24,040 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:07:24,040 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:07:24,040 - INFO - Unknown skill detected: 'microservices'
+2025-09-25 18:07:24,041 - INFO - Unknown skill detected: 'experience in java'
+2025-09-25 18:07:24,041 - INFO - Unknown skill detected: 'experience in spring'
+2025-09-25 18:07:24,041 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:07:24,041 - INFO - Unknown skill detected: 'spring boot'
+2025-09-25 18:07:24,042 - INFO - Unknown skill detected: 'kafka'
+2025-09-25 18:07:24,042 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:07:24,042 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:07:24,042 - INFO - Normalization completed successfully.
+2025-09-25 18:14:32,866 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:14:32,867 - INFO - Unknown skill detected: 'flask'
+2025-09-25 18:14:32,867 - INFO - Normalization completed successfully.
+2025-09-25 18:14:39,162 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:14:39,162 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:14:39,162 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:14:39,163 - INFO - Unknown skill detected: 'microservices'
+2025-09-25 18:14:39,163 - INFO - Unknown skill detected: 'experience in java'
+2025-09-25 18:14:39,163 - INFO - Unknown skill detected: 'experience in spring'
+2025-09-25 18:14:39,163 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:14:39,164 - INFO - Unknown skill detected: 'spring boot'
+2025-09-25 18:14:39,164 - INFO - Unknown skill detected: 'kafka'
+2025-09-25 18:14:39,164 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:14:39,164 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:14:39,164 - INFO - Normalization completed successfully.
+2025-09-25 18:16:16,268 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:16:16,268 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 18:16:16,269 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 18:16:16,269 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 18:16:16,269 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 18:16:16,269 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 18:16:16,269 - INFO - Unknown skill detected: 'github'
+2025-09-25 18:16:16,271 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:16:16,271 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 18:16:16,271 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 18:16:16,271 - INFO - Unknown skill detected: 'mlops optional'
+2025-09-25 18:16:16,272 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:16:16,272 - INFO - Unknown skill detected: 'plsql'
+2025-09-25 18:16:16,272 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:16:16,272 - INFO - Unknown skill detected: 'autosys'
+2025-09-25 18:16:16,273 - INFO - Unknown skill detected: 'unix'
+2025-09-25 18:16:16,273 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:16:16,273 - INFO - Unknown skill detected: 'sql queries'
+2025-09-25 18:16:16,274 - INFO - Unknown skill detected: 'troubleshooting'
+2025-09-25 18:16:16,274 - INFO - Normalization completed successfully.
+2025-09-25 18:16:24,202 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:16:24,203 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 18:16:24,203 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 18:16:24,203 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 18:16:24,204 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 18:16:24,204 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 18:16:24,204 - INFO - Unknown skill detected: 'github'
+2025-09-25 18:16:24,205 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:16:24,205 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 18:16:24,205 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 18:16:24,206 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:16:24,206 - INFO - Unknown skill detected: 'of experience from iits or nits'
+2025-09-25 18:16:24,206 - INFO - Normalization completed successfully.
+2025-09-25 18:22:35,108 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:22:35,108 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 18:22:35,109 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 18:22:35,109 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 18:22:35,109 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 18:22:35,109 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 18:22:35,109 - INFO - Unknown skill detected: 'github'
+2025-09-25 18:22:35,111 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:22:35,111 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 18:22:35,111 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 18:22:35,111 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:22:35,112 - INFO - Unknown skill detected: 'deep learning'
+2025-09-25 18:22:35,112 - INFO - Unknown skill detected: 'keras'
+2025-09-25 18:22:35,112 - INFO - Unknown skill detected: 'scikitlearn'
+2025-09-25 18:22:35,112 - INFO - Normalization completed successfully.
+2025-09-25 18:27:57,035 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:27:57,036 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:27:57,036 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:27:57,036 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:27:57,037 - INFO - Normalization completed successfully.
+2025-09-25 18:28:03,261 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:28:03,261 - INFO - Unknown skill detected: 'scikitlearn'
+2025-09-25 18:28:03,261 - INFO - Normalization completed successfully.
+2025-09-25 18:29:26,365 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:29:26,366 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:29:26,366 - INFO - Normalization completed successfully.
+2025-09-25 18:29:32,267 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:29:32,267 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:29:32,267 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:29:32,267 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:29:32,268 - INFO - Normalization completed successfully.
+2025-09-25 18:29:32,751 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:29:32,751 - INFO - Unknown skill detected: 'scikitlearn'
+2025-09-25 18:29:32,751 - INFO - Normalization completed successfully.
+2025-09-25 18:33:02,592 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:33:02,593 - INFO - Normalization completed successfully.
+2025-09-25 18:33:09,327 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:33:09,328 - INFO - Normalization completed successfully.
+2025-09-25 18:33:09,674 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:33:09,675 - INFO - Normalization completed successfully.
+2025-09-25 18:33:09,967 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:33:09,967 - INFO - Normalization completed successfully.
+2025-09-25 18:33:10,234 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:33:10,234 - INFO - Unknown skill detected: 'express'
+2025-09-25 18:33:10,234 - INFO - Normalization completed successfully.
+2025-09-25 18:37:32,007 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:37:32,008 - INFO - Normalization completed successfully.
+2025-09-25 18:37:37,997 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:37:37,998 - INFO - Normalization completed successfully.
+2025-09-25 18:37:38,367 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:37:38,368 - INFO - Normalization completed successfully.
+2025-09-25 18:37:38,719 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:37:38,720 - INFO - Normalization completed successfully.
+2025-09-25 18:37:39,077 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:37:39,077 - INFO - Unknown skill detected: 'express'
+2025-09-25 18:37:39,077 - INFO - Normalization completed successfully.
+2025-09-25 18:39:18,709 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:39:18,710 - INFO - Normalization completed successfully.
+2025-09-25 18:39:24,340 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:39:24,340 - INFO - Normalization completed successfully.
+2025-09-25 18:39:24,640 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:39:24,640 - INFO - Normalization completed successfully.
+2025-09-25 18:39:24,927 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:39:24,927 - INFO - Normalization completed successfully.
+2025-09-25 18:39:25,202 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:39:25,202 - INFO - Unknown skill detected: 'express'
+2025-09-25 18:39:25,203 - INFO - Normalization completed successfully.
+2025-09-25 18:41:41,903 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:41:41,904 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:41:41,905 - INFO - Normalization completed successfully.
+2025-09-25 18:41:47,511 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:41:47,511 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:41:47,511 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:41:47,511 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:41:47,512 - INFO - Normalization completed successfully.
+2025-09-25 18:45:13,418 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:45:13,420 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:45:13,420 - INFO - Normalization completed successfully.
+2025-09-25 18:45:18,899 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:45:18,899 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:45:18,899 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:45:18,899 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:45:18,900 - INFO - Normalization completed successfully.
+2025-09-25 18:46:24,716 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:46:24,716 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:46:24,718 - INFO - Normalization completed successfully.
+2025-09-25 18:46:30,293 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:46:30,293 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:46:30,293 - INFO - Unknown skill detected: 'shell scripting'
+2025-09-25 18:46:30,293 - INFO - Unknown skill detected: 'oracle'
+2025-09-25 18:46:30,294 - INFO - Normalization completed successfully.
+2025-09-25 18:46:30,714 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:46:30,715 - INFO - Unknown skill detected: 'scikitlearn'
+2025-09-25 18:46:30,715 - INFO - Normalization completed successfully.
+2025-09-25 18:50:17,930 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:50:17,932 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:50:17,932 - INFO - Unknown skill detected: 'data warehousing'
+2025-09-25 18:50:17,933 - INFO - Unknown skill detected: 'of professional sql experience'
+2025-09-25 18:50:17,933 - INFO - Unknown skill detected: 'sql'
+2025-09-25 18:50:17,933 - INFO - Unknown skill detected: 'etl'
+2025-09-25 18:50:17,933 - INFO - Unknown skill detected: 'tableau'
+2025-09-25 18:50:17,933 - INFO - Unknown skill detected: 'data warehousing'
+2025-09-25 18:50:17,934 - INFO - Normalization completed successfully.
+2025-09-25 18:50:24,086 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:50:24,086 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:50:24,087 - INFO - Unknown skill detected: 'flask'
+2025-09-25 18:50:24,087 - INFO - Unknown skill detected: 'postgresql'
+2025-09-25 18:50:24,087 - INFO - Normalization completed successfully.
+2025-09-25 18:50:24,455 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:50:24,455 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:50:24,456 - INFO - Unknown skill detected: 'spring'
+2025-09-25 18:50:24,456 - INFO - Unknown skill detected: 'maven'
+2025-09-25 18:50:24,456 - INFO - Unknown skill detected: 'with java and spring'
+2025-09-25 18:50:24,456 - INFO - Unknown skill detected: 'using maven'
+2025-09-25 18:50:24,457 - INFO - Unknown skill detected: 'java'
+2025-09-25 18:50:24,457 - INFO - Unknown skill detected: 'spring framework'
+2025-09-25 18:50:24,457 - INFO - Unknown skill detected: 'maven'
+2025-09-25 18:50:24,457 - INFO - Unknown skill detected: 'hibernate'
+2025-09-25 18:50:24,457 - INFO - Normalization completed successfully.
+2025-09-25 18:50:24,870 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:50:24,870 - INFO - Unknown skill detected: 'version control'
+2025-09-25 18:50:24,870 - WARNING - [JD Parsing] Could not parse experience string: 'Experience using version control systems like Git in a team environment.'
+2025-09-25 18:50:24,870 - INFO - Unknown skill detected: 'git'
+2025-09-25 18:50:24,871 - INFO - Unknown skill detected: 'svn'
+2025-09-25 18:50:24,871 - INFO - Normalization completed successfully.
+2025-09-25 18:50:25,215 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:50:25,215 - INFO - Unknown skill detected: 'pandas'
+2025-09-25 18:50:25,216 - INFO - Normalization completed successfully.
+2025-09-25 18:52:59,563 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 18:52:59,564 - INFO - Unknown skill detected: 'hugging face transformers'
+2025-09-25 18:52:59,564 - INFO - Unknown skill detected: 'llm integration'
+2025-09-25 18:52:59,564 - INFO - Unknown skill detected: 'openaigpt4 apis'
+2025-09-25 18:52:59,564 - INFO - Unknown skill detected: 'langchain'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'vectordbs pinecone chroma'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'github'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'rest apis'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'weights  biases'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'prompt engineering'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'mlops'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'deep learning'
+2025-09-25 18:52:59,565 - INFO - Unknown skill detected: 'keras'
+2025-09-25 18:52:59,566 - INFO - Unknown skill detected: 'scikitlearn'
+2025-09-25 18:52:59,566 - INFO - Normalization completed successfully.
+2025-09-25 19:01:51,643 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:01:51,643 - INFO - Unknown skill detected: 'sql'
+2025-09-25 19:01:51,643 - INFO - Unknown skill detected: 'data visualization'
+2025-09-25 19:01:51,644 - INFO - Unknown skill detected: 'problem solving'
+2025-09-25 19:01:51,644 - INFO - Unknown skill detected: 'sql'
+2025-09-25 19:01:51,644 - INFO - Unknown skill detected: 'tableau'
+2025-09-25 19:01:51,644 - INFO - Unknown skill detected: 'powerbi'
+2025-09-25 19:01:51,644 - INFO - Unknown skill detected: 'communication'
+2025-09-25 19:01:51,644 - INFO - Unknown skill detected: 'teamwork'
+2025-09-25 19:01:51,645 - INFO - Normalization completed successfully.
+2025-09-25 19:01:59,285 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:01:59,285 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:01:59,285 - INFO - Unknown skill detected: 'android development'
+2025-09-25 19:01:59,285 - INFO - Unknown skill detected: 'kotlin'
+2025-09-25 19:01:59,286 - INFO - Unknown skill detected: 'of experience'
+2025-09-25 19:01:59,286 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:01:59,286 - INFO - Unknown skill detected: 'kotlin'
+2025-09-25 19:01:59,286 - INFO - Unknown skill detected: 'android studio'
+2025-09-25 19:01:59,286 - INFO - Unknown skill detected: 'xml'
+2025-09-25 19:01:59,286 - INFO - Unknown skill detected: 'git'
+2025-09-25 19:01:59,286 - INFO - Normalization completed successfully.
+2025-09-25 19:01:59,714 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:01:59,714 - INFO - Unknown skill detected: 'machine learning'
+2025-09-25 19:01:59,714 - INFO - Unknown skill detected: 'scikitlearn'
+2025-09-25 19:01:59,714 - INFO - Unknown skill detected: 'pandas'
+2025-09-25 19:01:59,714 - INFO - Normalization completed successfully.
+2025-09-25 19:02:00,129 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:02:00,129 - INFO - Unknown skill detected: 'natural language processing nlp'
+2025-09-25 19:02:00,129 - INFO - Unknown skill detected: 'large language models llms'
+2025-09-25 19:02:00,129 - INFO - Unknown skill detected: 'retrievalaugmented generation rag'
+2025-09-25 19:02:00,129 - INFO - Unknown skill detected: 'nlp'
+2025-09-25 19:02:00,131 - INFO - Unknown skill detected: 'practical experience with llms and rag pipelines'
+2025-09-25 19:02:00,131 - INFO - Unknown skill detected: 'transformer models'
+2025-09-25 19:02:00,131 - INFO - Normalization completed successfully.
+2025-09-25 19:09:35,894 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:09:35,895 - INFO - Unknown skill detected: 'uiux design'
+2025-09-25 19:09:35,895 - INFO - Unknown skill detected: 'figma'
+2025-09-25 19:09:35,895 - INFO - Unknown skill detected: 'adobe xd'
+2025-09-25 19:09:35,896 - INFO - Unknown skill detected: 'of professional design experience'
+2025-09-25 19:09:35,896 - INFO - Unknown skill detected: 'figma'
+2025-09-25 19:09:35,896 - INFO - Unknown skill detected: 'adobe xd'
+2025-09-25 19:09:35,896 - INFO - Unknown skill detected: 'user research'
+2025-09-25 19:09:35,896 - INFO - Unknown skill detected: 'wireframing'
+2025-09-25 19:09:35,897 - INFO - Normalization completed successfully.
+2025-09-25 19:09:41,116 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:09:41,116 - INFO - Unknown skill detected: 'project management'
+2025-09-25 19:09:41,116 - INFO - Unknown skill detected: 'agile'
+2025-09-25 19:09:41,117 - INFO - Unknown skill detected: 'scrum'
+2025-09-25 19:09:41,117 - INFO - Unknown skill detected: 'agile'
+2025-09-25 19:09:41,117 - INFO - Unknown skill detected: 'scrum master'
+2025-09-25 19:09:41,117 - INFO - Unknown skill detected: 'jira'
+2025-09-25 19:09:41,117 - INFO - Unknown skill detected: 'budgeting'
+2025-09-25 19:09:41,117 - INFO - Normalization completed successfully.
+2025-09-25 19:09:41,487 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:09:41,488 - INFO - Unknown skill detected: 'agile methodologies'
+2025-09-25 19:09:41,488 - INFO - Unknown skill detected: 'experience with modern project management software'
+2025-09-25 19:09:41,488 - INFO - Unknown skill detected: 'agile'
+2025-09-25 19:09:41,488 - INFO - Unknown skill detected: 'scrum'
+2025-09-25 19:09:41,488 - INFO - Unknown skill detected: 'jira'
+2025-09-25 19:09:41,489 - INFO - Unknown skill detected: 'asana'
+2025-09-25 19:09:41,489 - INFO - Unknown skill detected: 'confluence'
+2025-09-25 19:09:41,489 - INFO - Normalization completed successfully.
+2025-09-25 19:09:41,896 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:09:41,896 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:09:41,896 - INFO - Unknown skill detected: 'spring boot'
+2025-09-25 19:09:41,896 - INFO - Unknown skill detected: 'microservices'
+2025-09-25 19:09:41,897 - INFO - Unknown skill detected: 'kafka'
+2025-09-25 19:09:41,897 - INFO - Unknown skill detected: 'expert in java and the spring boot ecosystem i have extensive experience building microservices also skilled in message queuing with kafka and rabbitmq'
+2025-09-25 19:09:41,897 - INFO - Normalization completed successfully.
+2025-09-25 19:09:42,294 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:09:42,294 - INFO - Unknown skill detected: 'quantitative analysis'
+2025-09-25 19:09:42,294 - INFO - Unknown skill detected: 'algorithmic trading'
+2025-09-25 19:09:42,294 - INFO - Unknown skill detected: 'stochastic calculus'
+2025-09-25 19:09:42,294 - INFO - Unknown skill detected: 'mathematical modeling'
+2025-09-25 19:09:42,295 - INFO - Unknown skill detected: 'monte carlo simulations'
+2025-09-25 19:09:42,295 - INFO - Normalization completed successfully.
+2025-09-25 19:09:42,756 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:09:42,756 - INFO - Unknown skill detected: 'architectural design'
+2025-09-25 19:09:42,756 - INFO - Unknown skill detected: 'system design'
+2025-09-25 19:09:42,757 - INFO - Unknown skill detected: 'mentorship'
+2025-09-25 19:09:42,757 - INFO - Unknown skill detected: 'go'
+2025-09-25 19:09:42,757 - INFO - Unknown skill detected: 'go'
+2025-09-25 19:09:42,757 - INFO - Unknown skill detected: 'distributed systems'
+2025-09-25 19:09:42,762 - INFO - Normalization completed successfully.

@@ -5,71 +5,75 @@ import json
 API_URL = "http://127.0.0.1:8000/similarity"
 
 # -------------------------
-# Test Cases
+# Simple Test Cases
 # -------------------------
-test_cases = [
+simple_test_cases = [
     {
+        # Test Case 1: The Perfect Match
+        # Goal: A basic sanity check. The resume should be a 100% match for the JD's skills and experience.
         "jd": {
-            "skills": ["Python", "Java", "SQL"],
-            "experience": ["3 years experience in Python", "2 years experience in Java"]
+            "skills": ["Python", "SQL"],
+            "experience": ["2+ years of Python experience"]
         },
         "resume": {
-            "Skills": ["Python", "Java", "SQL"],
+            "Skills": ["Python", "SQL", "Git"],
             "Experience": {
-                "CompanyA": ["Python", "2018", "2021", "3"],
-                "CompanyB": ["Java", "2019", "2021", "2"]
+                "Software Developer": ["Tech Solutions", "2022-01", "2024-01", "2"]
             }
         }
     },
     {
+        # Test Case 2: The Simple Skill Mismatch
+        # Goal: Check if the system can correctly identify a single missing skill.
         "jd": {
-            "skills": ["Python", "Java", "React"],
-            "experience": ["2 years experience in Python", "1 years experience in React"]
+            "skills": ["Java", "Spring", "Maven"]
         },
         "resume": {
-            "Skills": ["Python", "Java"],
+            "Skills": ["Java", "Maven"],
             "Experience": {
-                "CompanyA": ["Python", "2019", "2021", "2"],
-                "CompanyB": ["Java", "2020", "2021", "1"]
+                "Java Developer": ["Code Corp", "2021-01", "2025-01", "4"]
             }
         }
     },
     {
+        # Test Case 3: The Simple Experience Mismatch (Underqualified)
+        # Goal: A direct test of the experience logic. The candidate has the skill but not enough years.
         "jd": {
-            "skills": ["JavaScript", "Django", "SQL"],
-            "experience": ["3 years experience in JavaScript", "2 years experience in Django"]
+            "skills": ["Python"],
+            "experience": ["3+ years of Python experience"]
         },
         "resume": {
-            "Skills": ["JS", "Django Framework", "SQL"],
+            "Skills": ["Python"],
             "Experience": {
-                "CompanyA": ["JS", "2017", "2020", "3"],
-                "CompanyB": ["Django Framework", "2018", "2020", "2"]
+                "Junior Developer": ["Startup Inc.", "2023-01", "2025-01", "2"]
             }
         }
     },
     {
+        # Test Case 4: The Overqualified Candidate
+        # Goal: Check if the system correctly handles a candidate who exceeds the experience requirement.
         "jd": {
-            "skills": ["Python", "AWS", "Docker"],
-            "experience": ["4 years experience in Python", "2 years experience in AWS"]
+            "skills": ["Java"],
+            "experience": ["2+ years of Java experience"]
         },
         "resume": {
-            "Skills": ["Python", "AWS", "Docker"],
+            "Skills": ["Java"],
             "Experience": {
-                "CompanyA": ["Python", "2018", "2021", "3"],
-                "CompanyB": ["AWS", "2021", "2022", "1"]
+                "Senior Java Engineer": ["Enterprise Software", "2020-01", "2025-01", "5"]
             }
         }
     },
     {
+        # Test Case 5: The "No Relevant Experience" Candidate
+        # Goal: The candidate lists the skill but has zero professional experience using it.
         "jd": {
-            "skills": ["Java", "SQL"],
-            "experience": ["2 years experience in Java"]
+            "skills": ["React"],
+            "experience": ["2+ years of experience with React"]
         },
         "resume": {
-            "Skills": ["Java", "SQL", "Python", "React"],
+            "Skills": ["React", "JavaScript", "HTML"],
             "Experience": {
-                "CompanyA": ["Java", "2018", "2020", "2"],
-                "CompanyB": ["Python", "2019", "2022", "3"]
+                "Sales Associate": ["Retail World", "2022-01", "2025-01", "3"]
             }
         }
     }
@@ -78,10 +82,16 @@ test_cases = [
 # -------------------------
 # Run Tests
 # -------------------------
-for idx, test_case in enumerate(test_cases, start=1):
-    response = requests.post(API_URL, json=test_case)
-    if response.status_code == 200:
-        print(f"\n--- Test Case {idx} ---")
-        print(json.dumps(response.json(), indent=4))
-    else:
-        print(f"Test Case {idx} failed with status code {response.status_code}")
+for idx, test_case in enumerate(simple_test_cases, start=1):
+    print(f"\n--- Running Simple Test Case {idx} ---")
+    try:
+        response = requests.post(API_URL, json=test_case)
+        if response.status_code == 200:
+            print(json.dumps(response.json(), indent=4))
+        else:
+            print(f"FAILED with status code {response.status_code}")
+            print("Response:", response.text)
+    except requests.exceptions.ConnectionError as e:
+        print(f"FAILED: Could not connect to the API at {API_URL}.")
+        print("Please ensure your FastAPI server is running.")
+        break

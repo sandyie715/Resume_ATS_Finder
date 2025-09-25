@@ -1,6 +1,6 @@
 """
-Similarity utilities for Phase 2 (Industry-level)
-- Cosine similarity (overall JD ↔ Resume)
+Similarity utilities for Phase 2 (Industry-level - Step 6)
+- Weighted overall similarity (skills + experience)
 - Skills similarity (FAISS-based)
 - Missing keyword detection
 - Experience parsing & matching
@@ -9,179 +9,193 @@ Similarity utilities for Phase 2 (Industry-level)
 import re
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from typing import List, Tuple, Dict
 from app.embeddings.embedding_model import get_embedding
-from app.embeddings.faiss_index import FaissIndex
+import logging
+
+logger = logging.getLogger("similarity")
+logger.setLevel(logging.INFO)
 
 
 # -------------------------
 # 1. Overall Similarity
 # -------------------------
-def compute_overall_similarity(jd_vector: np.ndarray, resume_vector: np.ndarray) -> float:
+def compute_overall_similarity(skills_similarity: float, experience_match: List[Dict], exp_weight: float = 0.3) -> float:
     """
-    Compute cosine similarity between JD and Resume embeddings.
+    Compute weighted overall similarity using skills similarity and experience match.
 
     Args:
-        jd_vector (np.ndarray): JD embedding
-        resume_vector (np.ndarray): Resume embedding
+        skills_similarity (float): [0,1] percentage of matched skills
+        experience_match (list[dict]): [{"skill": "python", "required": 4, "candidate": 3, "status": "match"}, ...]
+        exp_weight (float): Weight to give experience in overall score (0-1)
 
     Returns:
-        float: similarity score [0, 1]
+        float: Weighted overall similarity [0,1]
     """
-    sim = cosine_similarity([jd_vector], [resume_vector])[0][0]
-    return float(sim)
+    if not experience_match:
+        return skills_similarity
+
+    total_skills = len(experience_match)
+    matched_count = sum(1 for e in experience_match if e["status"] == "match")
+    exp_ratio = matched_count / total_skills if total_skills else 0
+
+    overall = (1 - exp_weight) * skills_similarity + exp_weight * exp_ratio
+    return round(overall, 3)
 
 
 # -------------------------
-# 2. Skills Similarity (FAISS)
+# 2. Skills Similarity & Missing Keywords
 # -------------------------
-def compute_skills_similarity(jd_skills: list, resume_skills: list) -> float:
+def semantic_skill_analysis(jd_skills: List[str], resume_skills: List[str], threshold: float = 0.75) -> Tuple[float, List[str]]:
     """
-    Compute average similarity between JD skills and Resume skills using FAISS.
-    Args:
-        jd_skills (list[str]): Skills from JD
-        resume_skills (list[str]): Skills from Resume
-    Returns:
-        float: average similarity score [0, 1]
-    """
-    if not jd_skills or not resume_skills:
-        return 0.0
-
-    # Generate embeddings
-    jd_embeddings = [get_embedding(skill) for skill in jd_skills]
-    resume_embeddings = [get_embedding(skill) for skill in resume_skills]
-
-    # Create FAISS index for Resume skills
-    dim = resume_embeddings[0].shape[0]
-    faiss_index = FaissIndex(dim)
-    ids = list(range(len(resume_embeddings)))
-    faiss_index.add_vectors(resume_embeddings, ids)
-
-    # Query each JD skill embedding → take max similarity
-    sim_scores = []
-    for jd_vec in jd_embeddings:
-        results = faiss_index.search(jd_vec, top_k=1)
-        if results:
-            sim_scores.append(results[0][1])  # take top match score
-
-    return float(np.mean(sim_scores))
-
-
-# -------------------------
-# 3. Missing Keywords
-# -------------------------
-def find_missing_keywords(jd_skills: list, resume_skills: list) -> list:
-    """
-    Identify skills from JD that are missing in Resume.
+    Semantic skill matching with embeddings.
+    Combines skill similarity scoring and missing keyword detection.
 
     Args:
-        jd_skills (list[str]): JD skills
-        resume_skills (list[str]): Resume skills
+        jd_skills (list[str]): Required skills from JD
+        resume_skills (list[str]): Extracted skills from resume
+        threshold (float): Similarity threshold for match
 
     Returns:
-        list[str]: missing skills
+        tuple:
+            skills_similarity (float): % of JD skills matched
+            missing_keywords (list[str]): JD skills not matched semantically
     """
-    jd_set = {s.lower() for s in jd_skills}
-    resume_set = {s.lower() for s in resume_skills}
-    missing = jd_set - resume_set
-    return list(missing)
+    if not jd_skills:
+        return 0.0, []
+
+    try:
+        jd_vectors = np.array([get_embedding(skill) for skill in jd_skills])
+        resume_vectors = np.array([get_embedding(skill) for skill in resume_skills]) if resume_skills else np.empty((0, jd_vectors.shape[1]))
+
+        matched = 0
+        missing = []
+
+        for i, jd_vec in enumerate(jd_vectors):
+            if resume_vectors.size == 0:
+                missing.append(jd_skills[i])
+                continue
+
+            sims = cosine_similarity([jd_vec], resume_vectors)[0]
+            if np.max(sims) >= threshold:
+                matched += 1
+            else:
+                missing.append(jd_skills[i])
+
+        skills_similarity = matched / len(jd_skills)
+        return round(skills_similarity, 3), missing
+
+    except Exception as e:
+        logger.error(f"[Skills Similarity] Failed: {e}")
+        return 0.0, jd_skills
 
 
 # -------------------------
-# 4. Experience Parsing
+# 3. Experience Parsing
 # -------------------------
-def parse_experience_string(exp_str: str):
+def parse_experience_string(exp_str: str) -> Dict:
     """
     Extract numeric years and skill from JD experience string.
-    Example: "4 years experience in Java" -> {"skill": "java", "years_required": 4}
+    Supports "2+ years", "3-4 years", multi-word skills.
     """
-    pattern = r"(\d+)\s*years.*in\s*(\w+)"
+    pattern = r"(\d+)(?:\s*-\s*(\d+))?\+?\s*years?\s+(?:of\s+)?(?:experience\s+)?in\s+([\w\s\+#]+)"
     match = re.search(pattern, exp_str.lower())
     if match:
-        years = int(match.group(1))
-        skill = match.group(2)
+        years = int(match.group(2)) if match.group(2) else int(match.group(1))
+        skill = match.group(3).strip()
         return {"skill": skill, "years_required": years}
     return None
 
 
-# def match_experience(jd_experience: list, resume_experience: dict):
-#     """
-#     Compare JD experience requirements with Resume experience.
-
-#     Args:
-#         jd_experience (list[str]): ["4 years experience in java", ...]
-#         resume_experience (dict): {"Company": ["Role", start, end, years"]}
-
-#     Returns:
-#         list[dict]: [{"skill": ..., "required": ..., "candidate": ..., "status": "match/gap"}]
-#     """
-#     result = []
-
-#     # Flatten Resume experience → skill: years
-#     resume_skill_years = {}
-#     for company, vals in resume_experience.items():
-#         role, start, end, years_str = vals
-#         # convert "3 years" or "3" to int
-#         try:
-#             years = int(re.search(r"\d+", str(years_str)).group(0))
-#         except:
-#             years = 0
-#         resume_skill_years[role.lower()] = years
-
-#     # Compare JD experience requirements with Resume
-#     for exp_str in jd_experience:
-#         parsed = parse_experience_string(exp_str)
-#         if parsed:
-#             skill = parsed["skill"]
-#             required = parsed["years_required"]
-#             candidate = resume_skill_years.get(skill, 0)
-#             status = "match" if candidate >= required else "gap"
-#             result.append({
-#                 "skill": skill,
-#                 "required": required,
-#                 "candidate": candidate,
-#                 "status": status
-#             })
-
-#     return result
-# # -------------------------
-# # 4. Experience Matching
 # -------------------------
-def match_experience(jd_experience: list, resume_experience: dict) -> list:
+# 4. Experience Matching
+# -------------------------
+def match_experience(jd_experience: List[str], resume_experience: Dict[str, List]) -> List[Dict]:
     """
     Compare JD experience requirements with candidate's experience.
-    
+
     Args:
         jd_experience (list[str]): ["4 years experience in java", ...]
         resume_experience (dict): {"CompanyA": ["java", "2018", "2022", "4"], ...}
-    
+
     Returns:
         list[dict]: [{"skill": "java", "required": 4, "candidate": 4, "status": "match"}, ...]
     """
-    import re
-
     matches = []
-    
-    # Parse JD experience: extract years and skill
+
     for jd_exp in jd_experience:
-        match = re.search(r'(\d+)\s*years.*in\s*(\w+)', jd_exp, re.IGNORECASE)
-        if match:
-            required_years = int(match.group(1))
-            skill = match.group(2).lower()
-            
-            # Find candidate experience for the skill
-            candidate_years = 0
-            for _, v in resume_experience.items():
-                res_skill = v[0].lower()
-                exp_years = int(v[3]) if v[3].isdigit() else 0
-                if res_skill == skill:
-                    candidate_years += exp_years
-            
-            status = "match" if candidate_years >= required_years else "insufficient"
-            matches.append({
-                "skill": skill,
-                "required": required_years,
-                "candidate": candidate_years,
-                "status": status
-            })
-    
+        parsed = parse_experience_string(jd_exp)
+        if not parsed:
+            continue
+
+        skill = parsed["skill"].lower()
+        required_years = parsed["years_required"]
+
+        candidate_years = 0
+        for _, v in resume_experience.items():
+            if len(v) < 4:
+                continue
+            res_skill = str(v[0]).lower()
+            try:
+                exp_years = int(v[3])
+            except Exception:
+                exp_years = 0
+            if res_skill == skill:
+                candidate_years += exp_years
+
+        status = "match" if candidate_years >= required_years else "insufficient"
+        matches.append({
+            "skill": skill,
+            "required": required_years,
+            "candidate": candidate_years,
+            "status": status
+        })
+
     return matches
+
+
+# -------------------------
+# 5. Parse JD Experience to dict
+# -------------------------
+def parse_jd_experience(jd_experience: List[str]) -> Dict[str, int]:
+    """
+    Convert JD experience list to structured dict: {skill: required_years}
+    """
+    result = {}
+    for exp in jd_experience:
+        parsed = parse_experience_string(exp)
+        if parsed:
+            result[parsed["skill"].lower()] = parsed["years_required"]
+    return result
+
+
+# -------------------------
+# 6. Aggregate Resume Experience
+# -------------------------
+def aggregate_resume_experience(resume_experience: Dict[str, List]) -> Dict[str, int]:
+    """
+    Aggregate candidate experience across all companies: {skill: total_years}
+    """
+    result = {}
+    for _, v in resume_experience.items():
+        if len(v) < 4:
+            continue
+        skill = str(v[0]).lower()
+        try:
+            years = int(v[3])
+        except Exception:
+            years = 0
+        result[skill] = result.get(skill, 0) + years
+    return result
+
+
+# -------------------------
+# 7. Normalize skill string
+# -------------------------
+def normalize_skill(skill: str) -> str:
+    """
+    Convert skill to lower case and strip whitespace.
+    """
+    if not skill:
+        return ""
+    return skill.strip().lower()
