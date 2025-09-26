@@ -5,76 +5,67 @@ import json
 API_URL = "http://127.0.0.1:8000/similarity"
 
 # -------------------------
-# Simple Test Cases
+# Step 1: Normalization Test Cases
 # -------------------------
-simple_test_cases = [
+normalization_test_cases = [
     {
-        # Test Case 1: The Perfect Match
-        # Goal: A basic sanity check. The resume should be a 100% match for the JD's skills and experience.
+        # Test Case 1: The "Mixed Delimiter" Skills List
+        # Goal: Can the parser correctly extract skills from a single string with commas, semicolons, and pipes?
         "jd": {
-            "skills": ["Python", "SQL"],
-            "experience": ["2+ years of Python experience"]
+            "skills": ["Python", "SQL", "Java", "Docker", "Kubernetes"]
         },
         "resume": {
-            "Skills": ["Python", "SQL", "Git"],
+            "Skills": "Python, SQL; Java | Docker, Kubernetes",
+            "Experience": {}
+        }
+    },
+    {
+        # Test Case 2: The "Skills in a Sentence" Format
+        # Goal: Can the parser extract skills from natural language sentences, ignoring filler words?
+        "jd": {
+            "skills": ["Java", "Python", "Spring Boot", "AWS"]
+        },
+        "resume": {
+            "Skills": "Proficient in Java and Python. Also have experience with Spring Boot and some exposure to AWS.",
+            "Experience": {}
+        }
+    },
+    {
+        # Test Case 3: The "Messy JD Experience" Text
+        # Goal: Can the JD parser correctly extract the required years of experience from various common formats?
+        "jd": {
+            "skills": ["Java", "SQL", "Cloud"],
+            "experience": ["Requires 5+ years with Java", "A minimum of 3 yrs experience with SQL", "2-4 years of cloud experience is a plus"]
+        },
+        "resume": {
+            "Skills": ["Java", "SQL", "Cloud"],
+            "Experience": { "Developer": ["Some Company", "2020-01", "2025-01", "5"] }
+        }
+    },
+    {
+        # Test Case 4: The "Complex Date Range" Experience in Resume
+        # Goal: Can the resume parser handle and calculate durations from varied date formats? (This will be fully tested in Step 2, but we can check if it breaks the system now).
+        "jd": {
+            "skills": ["Project Management"]
+        },
+        "resume": {
+            "Skills": ["Project Management"],
             "Experience": {
-                "Software Developer": ["Tech Solutions", "2022-01", "2024-01", "2"]
+                "Project Lead": ["Corp A", "Jan 2020", "Present", ""],
+                "Coordinator": ["Corp B", "August 2018", "December 2019", ""]
             }
         }
     },
     {
-        # Test Case 2: The Simple Skill Mismatch
-        # Goal: Check if the system can correctly identify a single missing skill.
+        # Test Case 5: The "Combined Mess" Test
+        # Goal: A real-world test combining messy skill formats and varied JD experience requirements.
         "jd": {
-            "skills": ["Java", "Spring", "Maven"]
+            "skills": ["Python", "Pandas", "SQL", "Tableau"],
+            "experience": ["4+ years in data analytics with Python"]
         },
         "resume": {
-            "Skills": ["Java", "Maven"],
-            "Experience": {
-                "Java Developer": ["Code Corp", "2021-01", "2025-01", "4"]
-            }
-        }
-    },
-    {
-        # Test Case 3: The Simple Experience Mismatch (Underqualified)
-        # Goal: A direct test of the experience logic. The candidate has the skill but not enough years.
-        "jd": {
-            "skills": ["Python"],
-            "experience": ["3+ years of Python experience"]
-        },
-        "resume": {
-            "Skills": ["Python"],
-            "Experience": {
-                "Junior Developer": ["Startup Inc.", "2023-01", "2025-01", "2"]
-            }
-        }
-    },
-    {
-        # Test Case 4: The Overqualified Candidate
-        # Goal: Check if the system correctly handles a candidate who exceeds the experience requirement.
-        "jd": {
-            "skills": ["Java"],
-            "experience": ["2+ years of Java experience"]
-        },
-        "resume": {
-            "Skills": ["Java"],
-            "Experience": {
-                "Senior Java Engineer": ["Enterprise Software", "2020-01", "2025-01", "5"]
-            }
-        }
-    },
-    {
-        # Test Case 5: The "No Relevant Experience" Candidate
-        # Goal: The candidate lists the skill but has zero professional experience using it.
-        "jd": {
-            "skills": ["React"],
-            "experience": ["2+ years of experience with React"]
-        },
-        "resume": {
-            "Skills": ["React", "JavaScript", "HTML"],
-            "Experience": {
-                "Sales Associate": ["Retail World", "2022-01", "2025-01", "3"]
-            }
+            "Skills": "Core skills: Python (pandas, numpy), SQL; also skilled in Tableau and PowerBI.",
+            "Experience": { "Data Analyst": ["Data Inc.", "2020-01", "2025-01", "5"] }
         }
     }
 ]
@@ -82,8 +73,8 @@ simple_test_cases = [
 # -------------------------
 # Run Tests
 # -------------------------
-for idx, test_case in enumerate(simple_test_cases, start=1):
-    print(f"\n--- Running Simple Test Case {idx} ---")
+for idx, test_case in enumerate(normalization_test_cases, start=1):
+    print(f"\n--- Running Normalization Test Case {idx} ---")
     try:
         response = requests.post(API_URL, json=test_case)
         if response.status_code == 200:

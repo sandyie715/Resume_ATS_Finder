@@ -488,3 +488,61 @@
 2025-09-25 19:09:42,757 - INFO - Unknown skill detected: 'go'
 2025-09-25 19:09:42,757 - INFO - Unknown skill detected: 'distributed systems'
 2025-09-25 19:09:42,762 - INFO - Normalization completed successfully.
+2025-09-25 19:17:45,783 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:17:45,783 - INFO - Unknown skill detected: 'sql'
+2025-09-25 19:17:45,784 - INFO - Unknown skill detected: 'sql'
+2025-09-25 19:17:45,784 - INFO - Unknown skill detected: 'git'
+2025-09-25 19:17:45,784 - INFO - Normalization completed successfully.
+2025-09-25 19:17:51,029 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:17:51,029 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:17:51,030 - INFO - Unknown skill detected: 'spring'
+2025-09-25 19:17:51,030 - INFO - Unknown skill detected: 'maven'
+2025-09-25 19:17:51,030 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:17:51,030 - INFO - Unknown skill detected: 'maven'
+2025-09-25 19:17:51,030 - INFO - Normalization completed successfully.
+2025-09-25 19:17:51,315 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:17:51,315 - INFO - Normalization completed successfully.
+2025-09-25 19:17:51,466 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:17:51,466 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:17:51,467 - INFO - Unknown skill detected: 'of java experience'
+2025-09-25 19:17:51,467 - INFO - Unknown skill detected: 'java'
+2025-09-25 19:17:51,467 - INFO - Normalization completed successfully.
+2025-09-25 19:17:51,657 - INFO - Starting normalization of JD and Resume data...
+2025-09-25 19:17:51,657 - INFO - Unknown skill detected: 'html'
+2025-09-25 19:17:51,657 - INFO - Normalization completed successfully.
+2025-09-26 15:26:44,126 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:26:44,126 - INFO - Normalization completed successfully.
+2025-09-26 15:26:44,136 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:26:44,136 - INFO - Unknown skill detected: 'html'
+2025-09-26 15:26:44,137 - INFO - Normalization completed successfully.
+2025-09-26 15:26:49,582 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:26:49,582 - INFO - Unknown skill detected: 'sql'
+2025-09-26 15:26:49,582 - INFO - Unknown skill detected: 'sql'
+2025-09-26 15:26:49,583 - INFO - Normalization completed successfully.
+2025-09-26 15:26:49,851 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:26:49,851 - INFO - Unknown skill detected: 'sql'
+2025-09-26 15:26:49,851 - INFO - Normalization completed successfully.
+2025-09-26 15:31:44,754 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:31:44,755 - INFO - Unknown skill detected: 'sql'
+2025-09-26 15:31:44,756 - INFO - Normalization completed successfully.
+2025-09-26 15:31:49,972 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:31:49,972 - INFO - Unknown skill detected: 'data engineering'
+2025-09-26 15:31:49,972 - INFO - Unknown skill detected: 'etl pipelines'
+2025-09-26 15:31:49,973 - INFO - Unknown skill detected: 'apache spark'
+2025-09-26 15:31:49,973 - INFO - Unknown skill detected: 'airflow'
+2025-09-26 15:31:49,973 - INFO - Unknown skill detected: 'kafka'
+2025-09-26 15:31:49,973 - INFO - Unknown skill detected: 'sql'
+2025-09-26 15:31:49,973 - INFO - Normalization completed successfully.
+2025-09-26 15:31:50,430 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:31:50,430 - INFO - Unknown skill detected: 'of relevant experience'
+2025-09-26 15:31:50,431 - INFO - Unknown skill detected: 'java'
+2025-09-26 15:31:50,431 - INFO - Unknown skill detected: 'spring'
+2025-09-26 15:31:50,431 - INFO - Normalization completed successfully.
+2025-09-26 15:31:50,560 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:31:50,560 - INFO - Normalization completed successfully.
+2025-09-26 15:31:50,689 - INFO - Starting normalization of JD and Resume data...
+2025-09-26 15:31:50,690 - INFO - Unknown skill detected: 'proven ability to build scalable distributed systems'
+2025-09-26 15:31:50,690 - INFO - Unknown skill detected: 'microservices'
+2025-09-26 15:31:50,690 - INFO - Unknown skill detected: 'kafka'
+2025-09-26 15:31:50,690 - INFO - Unknown skill detected: 'go'
+2025-09-26 15:31:50,691 - INFO - Normalization completed successfully.

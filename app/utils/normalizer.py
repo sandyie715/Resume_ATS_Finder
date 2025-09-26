@@ -1,6 +1,6 @@
 """
-Normalizer Utilities for Phase 2
---------------------------------
+Normalizer for Phase 2
+----------------------
 Transforms raw parsed JD & Resume data into a clean, standardized format
 for the similarity pipeline.
 
@@ -16,12 +16,22 @@ import logging
 from typing import Dict, Any, List, Tuple
 
 # -------------------------
+# Import helpers from normalizer_utils
+# -------------------------
+from app.utils.normalizer_utils import (
+    split_skill_string,
+    parse_date_or_none,
+    compute_duration_in_years,
+    normalize_skill_name,  # imported from utils to solve circular import
+    parse_experience_string
+)
+
+# -------------------------
 # Logger Setup
 # -------------------------
 logger = logging.getLogger("normalizer")
 logger.setLevel(logging.INFO)
 
-# Avoid duplicate handlers during reloads
 if not logger.handlers:
     handler = logging.FileHandler("logs/normalizer.log")
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -29,108 +39,10 @@ if not logger.handlers:
     logger.addHandler(handler)
 
 # -------------------------
-# Skill Synonyms Dictionary
-# -------------------------
-SKILL_SYNONYMS = {
-    # JavaScript variants
-    "js": "javascript",
-    "javascript framework": "javascript",
-    "javascript": "javascript",
-    "reactjs": "react",
-    "react": "react",
-    "node": "nodejs",
-    "nodejs": "nodejs",
-    "node.js": "nodejs",
-
-    # Python
-    "py": "python",
-    "python": "python",
-
-    # Django
-    "django framework": "django",
-    "django": "django",
-
-    # C/C++
-    "c++": "c++",
-    "cpp": "c++",
-    "c#": "c#",
-
-    # Cloud & DevOps
-    "aws": "aws",
-    "amazon web services": "aws",
-    "gcp": "gcp",
-    "google cloud platform": "gcp",
-    "docker": "docker",
-    "kubernetes": "kubernetes",
-
-    # ML/AI
-    "tensorflow": "tensorflow",
-    "pytorch": "pytorch",
-    "huggingface transformers": "huggingface transformers",
-    "mlflow": "mlflow",
-    "scikit-learn": "scikit-learn",
-}
-
-def normalize_skill_name(skill: str) -> str:
-    """
-    Normalize skill names:
-    - Lowercase, strip spaces, remove punctuation
-    - Map synonyms from SKILL_SYNONYMS
-    - Fallback partial matching
-    - Log unknown skills for future dictionary updates
-    """
-    if not skill or not isinstance(skill, str):
-        return ""
-
-    # Clean skill string
-    skill_clean = skill.strip().lower()
-    skill_clean = re.sub(r"[^a-z0-9\s\+\#]", "", skill_clean)  # remove punctuation
-
-    # Direct mapping
-    if skill_clean in SKILL_SYNONYMS:
-        return SKILL_SYNONYMS[skill_clean]
-
-    # Partial match mapping
-    for key, val in SKILL_SYNONYMS.items():
-        if key in skill_clean:
-            return val
-
-    # Log unknown skill for review
-    logger.info(f"Unknown skill detected: '{skill_clean}'")
-
-    return skill_clean
-
-# -------------------------
-# JD Experience Parsing
-# -------------------------
-def parse_experience_string(exp_str: str) -> Tuple[int, str]:
-    """
-    Parse JD experience string like:
-        "4 years experience in Python"
-        "2+ yrs of AWS"
-    → (4, 'python')
-    """
-    if not exp_str or not isinstance(exp_str, str):
-        return 0, ""
-
-    try:
-        match = re.search(r'(\d+)\s*[\+]*\s*years?.*?(?:in|with|on)?\s*([\w\s\.\#]+)', exp_str, re.IGNORECASE)
-        if match:
-            years = int(match.group(1))
-            skill = normalize_skill_name(match.group(2))
-            return years, skill
-        else:
-            logger.warning(f"[JD Parsing] Could not parse experience string: '{exp_str}'")
-            return 0, ""
-    except Exception as e:
-        logger.error(f"[JD Parsing] Exception parsing experience string '{exp_str}': {e}")
-        return 0, ""
-
-# -------------------------
 # JD Normalization
 # -------------------------
 def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
-    """Normalize JD data into Phase 2-ready format."""
+    """Normalize JD data into Phase 2-ready format with robust error handling."""
     if not isinstance(raw_jd, dict):
         logger.error("[JD] Invalid JD input format.")
         return {"skills": [], "experience": []}
@@ -139,18 +51,22 @@ def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
     normalized_exp: List[str] = []
 
     # Normalize skills
-    for skill in raw_jd.get("skills", []):
-        norm_skill = normalize_skill_name(skill)
-        if norm_skill:
-            normalized_skills.append(norm_skill)
-        else:
-            logger.warning(f"[JD Skill] Empty or invalid JD skill: {skill}")
+    for skill_entry in raw_jd.get("skills", []):
+        for skill in split_skill_string(skill_entry):
+            norm_skill = normalize_skill_name(skill)
+            if norm_skill:
+                normalized_skills.append(norm_skill)
+            else:
+                logger.warning(f"[JD Skill] Empty or invalid JD skill: {skill_entry}")
 
     # Normalize experience strings
     for exp in raw_jd.get("experience", []):
-        years, skill = parse_experience_string(exp)
-        if years > 0 and skill:
-            normalized_exp.append(f"{years} years experience in {skill}")
+        try:
+            years, skills = parse_experience_string(exp)
+            for skill in skills:
+                normalized_exp.append(f"{years} years experience in {skill}")
+        except Exception as e:
+            logger.error(f"[JD Exp] Error parsing experience string '{exp}': {e}")
 
     return {
         "skills": sorted(set(normalized_skills)),
@@ -161,7 +77,7 @@ def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
 # Resume Normalization
 # -------------------------
 def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
-    """Normalize Resume data into Phase 2-ready format."""
+    """Normalize Resume data into Phase 2-ready format with robust error handling."""
     if not isinstance(raw_resume, dict):
         logger.error("[Resume] Invalid resume input format.")
         return {"Skills": [], "Experience": {}}
@@ -172,7 +88,7 @@ def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
     # Normalize skills
     skills_raw = raw_resume.get("Skills", [])
     if isinstance(skills_raw, str):
-        skills_raw = [s.strip() for s in skills_raw.split(",") if s.strip()]
+        skills_raw = split_skill_string(skills_raw)
 
     for skill in skills_raw:
         norm_skill = normalize_skill_name(skill)
@@ -181,30 +97,33 @@ def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
 
     # Normalize and merge experience
     for company, details in raw_resume.get("Experience", {}).items():
+        # Ensure details is a list
         if isinstance(details, str):
             details = [details]
-        details = details[:4] + [""] * (4 - len(details))
+        details = details[:4] + [""] * (4 - len(details))  # pad missing fields
 
-        skill = normalize_skill_name(details[0])
+        # Support multiple skills in experience
+        skills_in_entry = split_skill_string(details[0])
+        if not skills_in_entry:
+            skills_in_entry = ["unknown"]
 
-        # Parse start, end, duration
+        # Parse start, end, duration safely
         try:
-            start = int(re.search(r'\d{4}', str(details[1])).group()) if details[1] else 0
-        except:
-            start = 0
-        try:
-            end = int(re.search(r'\d{4}', str(details[2])).group()) if details[2] else 0
-        except:
-            end = 0
-        try:
-            duration = int(re.search(r'\d+', str(details[3])).group()) if details[3] else 0
-        except:
-            duration = 0
+            start_date = parse_date_or_none(details[1])
+            end_date = parse_date_or_none(details[2])
+            duration = compute_duration_in_years(start_date, end_date)
+        except Exception as e:
+            logger.error(f"[Resume Exp] Error parsing experience for {company}: {e}")
+            start_date = end_date = None
+            duration = 0.0
 
-        if skill in normalized_experience:
-            normalized_experience[skill][3] += duration
-        else:
-            normalized_experience[skill] = [skill, start, end, duration]
+        # Merge experience per skill
+        for raw_skill in skills_in_entry:
+            skill = normalize_skill_name(raw_skill)
+            if skill in normalized_experience:
+                normalized_experience[skill][3] += duration
+            else:
+                normalized_experience[skill] = [skill, details[1], details[2], duration]
 
     return {
         "Skills": sorted(set(normalized_skills)),
