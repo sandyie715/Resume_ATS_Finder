@@ -1,18 +1,13 @@
 {
     "skills": [
-        "Excel",
-        "SQL",
-        "Tableau",
-        "Data analysis",
-        "Problem-solving",
-        "Communication skills",
-        "Analytical skills",
-        "Technical skills",
-        "Research skills",
-        "Reporting",
-        "Presentation skills"
-    ],
-    "experience": [
-        "Assist in analyzing and solving data-related challenges."
+        "analytics",
+        "data analysis",
+        "data visualization",
+        "data mining",
+        "data evaluation",
+        "data management",
+        "data security",
+        "metadata management",
+        "reporting environment"
     ]
 }

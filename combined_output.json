@@ -1,67 +1,71 @@
 {
     "resume": {
-        "Name": [
-            "Karunasagara T M"
-        ],
-        "Profile Title": "",
-        "Email": "",
+        "Name": "Anudeep K K",
+        "Profile Title": "Student",
+        "Email": null,
         "Contact": {
-            "Primary number": [
-                "+91 8073242058"
-            ],
-            "Secondary number": []
+            "Primary number": "91-8762339086",
+            "Secondary number": "91-8762339086"
         },
-        "Gender": "",
-        "Date of Birth": "",
+        "Gender": null,
+        "Date of Birth": null,
         "Address": {
-            "Address Line1": "",
-            "Address Line2": "",
-            "Country": "",
-            "State": "",
-            "City": "",
-            "Postal Code": ""
+            "Address Line1": null,
+            "Address Line2": null,
+            "Country": "India",
+            "State": null,
+            "City": null,
+            "Postal Code": null
         },
-        "Total Years Experience": "",
-        "Nationality": "",
-        "GitHub Link": "",
-        "Website/Portfolio": "",
-        "LinkedIn Link": "",
+        "Total Years Experience": null,
+        "Nationality": null,
+        "GitHub Link": null,
+        "Website/Portfolio": null,
+        "LinkedIn Link": null,
         "Education": {
-            "First college": [],
-            "Studied Year": "",
-            "Marks/CGPA/Score": ""
+            "First college": [
+                "Sahyadri College of Engineering and Management, Adyar,Mangaluru 2021 2025"
+            ],
+            "Studied Year": 2021,
+            "Marks/CGPA": 9.59
         },
-        "Skills": [],
-        "Experience": {
-            "First working company name": [],
-            "Role": "",
-            "Start Date": "",
-            "End Date": "",
-            "Total years experience": ""
-        },
-        "Project": {
-            "Project1 name": [],
-            "Start Date": "",
-            "End Date": "",
-            "Skills used": ""
-        }
+        "Skills": [
+            "Data Structures & Database Management",
+            "OOPS Concept",
+            "Web Development & Algorithms",
+            "DBMS",
+            "App Development",
+            "Data Structures & Engineering",
+            "Frontend",
+            "Backend",
+            "JavaScript",
+            "SQL",
+            "Python",
+            "Java",
+            "C",
+            "C++",
+            "HTML",
+            "CSS",
+            "Javascript",
+            "ReactJS",
+            "TailwindCSS",
+            "NextJS",
+            "React Native",
+            "Firebase"
+        ],
+        "Experience": null
     },
     "jd": {
         "skills": [
-            "Excel",
-            "SQL",
-            "Tableau",
-            "Data analysis",
-            "Problem-solving",
-            "Communication skills",
-            "Analytical skills",
-            "Technical skills",
-            "Research skills",
-            "Reporting",
-            "Presentation skills"
-        ],
-        "experience": [
-            "Assist in analyzing and solving data-related challenges."
+            "analytics",
+            "data analysis",
+            "data visualization",
+            "data mining",
+            "data evaluation",
+            "data management",
+            "data security",
+            "metadata management",
+            "reporting environment"
         ]
     }
 }

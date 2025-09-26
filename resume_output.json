@@ -1,4 +1,56 @@
 {
-    "error": "Failed to parse JSON: Expecting ':' delimiter: line 35 column 3 (char 727)",
-    "raw_output": "{\n  \"Name\": [\n    \"Anil Kumar S\"\n  ],\n  \"Profile Title\": \"L2 Production System Analyst\",\n  \"Email\": \"\",\n  \"Contact\": {\n    \"Primary number\": [\n      \"91-7997891321\"\n    ],\n    \"Secondary number\": [\n      \"91-7997891321\"\n    ]\n  },\n  \"Gender\": \"\",\n  \"Date of Birth\": \"16-12-1998\",\n  \"Address\": {\n    \"Address Line1\": \"\",\n    \"Address Line2\": \"\",\n    \"Country\": \"\",\n    \"State\": \"\",\n    \"City\": \"\",\n    \"Postal Code\": \"\"\n  },\n  \"Total Years Experience\": \"\",\n  \"Nationality\": \"\",\n  \"GitHub Link\": \"\",\n  \"Website/Portfolio\": \"\",\n  \"LinkedIn Link\": \"\",\n  \"Education\": {\n    \"First college\": [\n      \"EE from Aditya Engineering College, with 6.24GPA in 2021.\"\n    ],\n    \"Diploma from Aditya Engineering College in the year 2017.\"\n  },\n  \"Skills\": [],\n  \"Experience\": {\n    \"First working company name\": [\n      \"L2 Production System Analyst in Datanet Technologies from 15th May 2023\"\n    ],\n    \"Currently working as Support Engineer in Sysnet Global Solutions, Bangalore from 12th May 2022 to 10th May 2023.\"\n  }"
+    "Name": "Anudeep K K",
+    "Profile Title": "Student",
+    "Email": null,
+    "Contact": {
+        "Primary number": "91-8762339086",
+        "Secondary number": "91-8762339086"
+    },
+    "Gender": null,
+    "Date of Birth": null,
+    "Address": {
+        "Address Line1": null,
+        "Address Line2": null,
+        "Country": "India",
+        "State": null,
+        "City": null,
+        "Postal Code": null
+    },
+    "Total Years Experience": null,
+    "Nationality": null,
+    "GitHub Link": null,
+    "Website/Portfolio": null,
+    "LinkedIn Link": null,
+    "Education": {
+        "First college": [
+            "Sahyadri College of Engineering and Management, Adyar,Mangaluru 2021 2025"
+        ],
+        "Studied Year": 2021,
+        "Marks/CGPA": 9.59
+    },
+    "Skills": [
+        "Data Structures & Database Management",
+        "OOPS Concept",
+        "Web Development & Algorithms",
+        "DBMS",
+        "App Development",
+        "Data Structures & Engineering",
+        "Frontend",
+        "Backend",
+        "JavaScript",
+        "SQL",
+        "Python",
+        "Java",
+        "C",
+        "C++",
+        "HTML",
+        "CSS",
+        "Javascript",
+        "ReactJS",
+        "TailwindCSS",
+        "NextJS",
+        "React Native",
+        "Firebase"
+    ],
+    "Experience": null
 }
