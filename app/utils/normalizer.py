@@ -4,11 +4,7 @@ Normalizer for Phase 2
 Transforms raw parsed JD & Resume data into a clean, standardized format
 for the similarity pipeline.
 
-Responsibilities:
-- Normalize skill names and handle common synonyms / typos
-- Extract numeric experience from messy strings
-- Merge scattered experience entries per skill
-- Validate structure and log anomalies robustly
+Now includes optional LLM preprocessing to improve normalization quality.
 """
 
 import re
@@ -27,6 +23,15 @@ from app.utils.normalizer_utils import (
 )
 
 # -------------------------
+# Optional: Import LLM preprocessor
+# -------------------------
+try:
+    from app.llm.llm_preprocessor import preprocess_with_llm
+    LLM_AVAILABLE = True
+except ImportError:
+    LLM_AVAILABLE = False
+
+# -------------------------
 # Logger Setup
 # -------------------------
 logger = logging.getLogger("normalizer")
@@ -38,11 +43,23 @@ if not logger.handlers:
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
+
 # -------------------------
 # JD Normalization
 # -------------------------
 def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
     """Normalize JD data into Phase 2-ready format with robust error handling."""
+
+    # ✅ Step 1: Optional LLM Preprocessing
+    if LLM_AVAILABLE:
+        try:
+            logger.info("[JD] Running LLM preprocessor on raw JD...")
+            processed = preprocess_with_llm({"jd": raw_jd, "resume": {}})
+            raw_jd = processed.get("jd", raw_jd)
+            logger.info("[JD] LLM preprocessing completed successfully.")
+        except Exception as e:
+            logger.error(f"[JD] LLM preprocessing failed: {e}. Continuing with fallback logic.")
+
     if not isinstance(raw_jd, dict):
         logger.error("[JD] Invalid JD input format.")
         return {"skills": [], "experience": []}
@@ -50,7 +67,7 @@ def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
     normalized_skills: List[str] = []
     normalized_exp: List[str] = []
 
-    # Normalize skills
+    # ✅ Normalize skills
     for skill_entry in raw_jd.get("skills", []):
         for skill in split_skill_string(skill_entry):
             norm_skill = normalize_skill_name(skill)
@@ -59,7 +76,7 @@ def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
             else:
                 logger.warning(f"[JD Skill] Empty or invalid JD skill: {skill_entry}")
 
-    # Normalize experience strings
+    # ✅ Normalize experience strings
     for exp in raw_jd.get("experience", []):
         try:
             years, skills = parse_experience_string(exp)
@@ -73,11 +90,23 @@ def normalize_jd(raw_jd: Dict[str, Any]) -> Dict[str, Any]:
         "experience": normalized_exp
     }
 
+
 # -------------------------
 # Resume Normalization
 # -------------------------
 def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
     """Normalize Resume data into Phase 2-ready format with robust error handling."""
+
+    # ✅ Step 1: Optional LLM Preprocessing
+    if LLM_AVAILABLE:
+        try:
+            logger.info("[Resume] Running LLM preprocessor on raw resume...")
+            processed = preprocess_with_llm({"resume": raw_resume, "jd": {}})
+            raw_resume = processed.get("resume", raw_resume)
+            logger.info("[Resume] LLM preprocessing completed successfully.")
+        except Exception as e:
+            logger.error(f"[Resume] LLM preprocessing failed: {e}. Continuing with fallback logic.")
+
     if not isinstance(raw_resume, dict):
         logger.error("[Resume] Invalid resume input format.")
         return {"Skills": [], "Experience": {}}
@@ -85,7 +114,7 @@ def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
     normalized_skills: List[str] = []
     normalized_experience: Dict[str, List[Any]] = {}
 
-    # Normalize skills
+    # ✅ Normalize skills
     skills_raw = raw_resume.get("Skills", [])
     if isinstance(skills_raw, str):
         skills_raw = split_skill_string(skills_raw)
@@ -95,9 +124,8 @@ def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
         if norm_skill:
             normalized_skills.append(norm_skill)
 
-    # Normalize and merge experience
+    # ✅ Normalize and merge experience
     for company, details in raw_resume.get("Experience", {}).items():
-        # Ensure details is a list
         if isinstance(details, str):
             details = [details]
         details = details[:4] + [""] * (4 - len(details))  # pad missing fields
@@ -107,7 +135,6 @@ def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
         if not skills_in_entry:
             skills_in_entry = ["unknown"]
 
-        # Parse start, end, duration safely
         try:
             start_date = parse_date_or_none(details[1])
             end_date = parse_date_or_none(details[2])
@@ -129,6 +156,7 @@ def normalize_resume(raw_resume: Dict[str, Any]) -> Dict[str, Any]:
         "Skills": sorted(set(normalized_skills)),
         "Experience": normalized_experience
     }
+
 
 # -------------------------
 # Master Normalizer
